@@ -13,7 +13,7 @@ class GoatsController < ApplicationController
 
   def create
     @goat = Goat.new(goat_params)
-    @user = @goat.user
+    @goat.user = User.find(params[:user_id])
     if @goat.save
       redirect_to @goat
     else
@@ -25,7 +25,6 @@ class GoatsController < ApplicationController
 
   def update
     @goat.update(goat_params)
-    @user = @goat.user
     redirect_to @goat
   end
 
@@ -41,6 +40,6 @@ class GoatsController < ApplicationController
   end
 
   def goat_params
-    params.require(:goat).permit(:name)
+    params.require(:goat).permit(:name, :user_id)
   end
 end
