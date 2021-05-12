@@ -1,5 +1,6 @@
 class GoatsController < ApplicationController
   before_action :set_goat, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @goats = Goat.all
