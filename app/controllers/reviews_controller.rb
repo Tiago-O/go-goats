@@ -1,4 +1,4 @@
-class ReviewController < ApplicationController
+class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @goat = Goat.find(params[:goat_id])
