@@ -3,5 +3,9 @@
 
   <%= simple_form_for @goat do |f| %>
     <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :number %>
+    <%= f.input :description %>
+    <%= f.submit "Update", class: "btn btn-secondary" %>
   <% end %>
 </div>

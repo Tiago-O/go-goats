@@ -5,6 +5,9 @@
         <h3>Create your Herd</h3>
         <%= simple_form_for @goat do |g| %>
           <%= g.input :name, placeholder: 'Ex: Your Herd name' %>
+          <%= g.input :location, placeholder: 'Ex: Your location' %>
+          <%= g.input :number, placeholder: 'Ex: The number of goats' %>
+          <%= g.input :description, placeholder: 'Ex: Describe your service' %>
           <%= g.submit class: 'btn btn-secondary' %>
         <% end %>
       </div>

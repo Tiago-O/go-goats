@@ -3,6 +3,9 @@
 
   <% @goats.each do |goat| %>
     <p><%= link_to goat.name, goat_path(goat) %></p>
+    <p><%= goat.location %></p>
+    <p><%= goat.number %></p>
   <% end %>
+  <p><%= link_to "New", new_goat_path, class: "btn btn-secondary" %></p>
 </div>
 
