@@ -2,7 +2,6 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :goat
 
-  validates :date, presence: true, availability: true
+  validates :date, presence: true
   validates :location, presence: true
 end
-date e location
