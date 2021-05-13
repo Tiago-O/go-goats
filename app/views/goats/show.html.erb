@@ -11,4 +11,15 @@
     <%= link_to 'delete', goat_path(@goat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 
   </div>
+
+   <%= simple_form_for [@goat, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating %>
+    <%= f.submit "Review", class: "btn btn-secondary" %>
+  <% end %>
+
+  <% @goat.reviews.each do |review| %>
+    <%= review.comment %> <%=  '🐐' * review.rating%>
+  <% end %>
+
 </div>
