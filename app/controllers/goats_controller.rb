@@ -6,7 +6,9 @@ class GoatsController < ApplicationController
     @goats = Goat.all
   end
 
-  def show; end
+  def show
+    @reservation = Reservation.new
+  end
 
   def new
     @goat = Goat.new

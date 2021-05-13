@@ -1,14 +1,44 @@
-<h2><%= @goat.name.capitalize %></h2>
-
 <div class="container">
-  <div class="d-flex justify-content-between my-3">
+  <h2>Herd <strong><%= @goat.name.capitalize %></strong></h2>
 
-    <%= @goat.description %>
-    <%= @goat.location %>
-    <%= @goat.number %>
+  <%= @goat.description %>
+  <%= @goat.location %>
+  <%= @goat.number %>
 
-    <%= link_to 'edit', edit_goat_path(@goat) %>
-    <%= link_to 'delete', goat_path(@goat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= link_to 'edit', edit_goat_path(@goat), class: 'btn btn-secondary' %>
+  <%= link_to 'delete', goat_path(@goat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#book-modal">
+    Book
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="book-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Book herd <strong><%= @goat.name.capitalize%></strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!-- form -->
+        <div class="modal-body">
+          <%= simple_form_for [@goat, @reservation] do |f| %>
+            <%= f.input :location %>
+            <%= f.input :date %>
+        </div>
+          <div class="modal-footer">
+            <!-- close -->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <!-- create reservation -->
+            <%= f.submit "Book now", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

@@ -9,12 +9,15 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.user = User.find(params[:user_id])
-    @reservation.goat = User.find(params[:goat_id])
-    @reservation.goat = @goat
+    @reservation.user = current_user
+    @reservation.goat = Goat.find(params[:goat_id])
 
-    @reservation.save
-    redirect_to @goat
+    if @reservation.save
+      # change this to confirmation page
+      redirect_to @reservation.goat
+    else
+      render 'goats/show'
+    end
   end
 
   # is this method necessary ?
