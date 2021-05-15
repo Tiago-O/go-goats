@@ -7,33 +7,33 @@ Reservation.destroy_all
 Review.destroy_all
 
 puts 'Creating users: Tiago, Felipe & Diogo, with pictures, that own goats'
-owner_tiago = User.create(name: 'Tiago', address: 'Penafiel', mail: 'tiago@me.pt', password: '123456')
+owner_tiago = User.create(name: 'Tiago', address: 'Penafiel', email: 'tiago@me.pt', password: '123456')
 file = URI.open('https://avatars.githubusercontent.com/u/63858592?v=4')
 owner_tiago.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 owner_tiago.save
 
-owner_felipe = User.create(name: 'Felipe', address: 'Avelar', mail: 'felipe@me.pt', password: '123456')
+owner_felipe = User.create(name: 'Felipe', address: 'Avelar', email: 'felipe@me.pt', password: '123456')
 file = URI.open('https://avatars.githubusercontent.com/u/75455106?v=4')
 owner_felipe.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 owner_felipe.save
 
-owner_diogo = User.create(name: 'Diogo', address: 'Lisboa', mail: 'diogo@me.pt', password: '123456')
+owner_diogo = User.create(name: 'Diogo', address: 'Lisboa', email: 'diogo@me.pt', password: '123456')
 file = URI.open('https://avatars.githubusercontent.com/u/76879710?v=4')
 owner_diogo.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 owner_diogo.save
 
 puts 'Creating 3 users, with pictures, that need goats!'
-maria = User.create(name: 'Maria', address: 'Lousã', mail: 'maria@me.pt', password: '123456')
+maria = User.create(name: 'Maria', address: 'Lousã', email: 'maria@me.pt', password: '123456')
 file = URI.open('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80')
 maria.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 maria.save
 
-joachim = User.create(name: 'Joachim', address: 'Alvito', mail: 'joachim@me.pt', password: '123456')
+joachim = User.create(name: 'Joachim', address: 'Alvito', email: 'joachim@me.pt', password: '123456')
 file = URI.open('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80')
 joachim.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 joachim.save
 
-elsa = User.create(name: 'Elsa', address: 'Melgaço', mail: 'elsa@me.pt', password: '123456')
+elsa = User.create(name: 'Elsa', address: 'Melgaço', email: 'elsa@me.pt', password: '123456')
 file = URI.open('https://images.unsplash.com/photo-1521755985926-3433a1d0a769?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80')
 elsa.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 elsa.save
