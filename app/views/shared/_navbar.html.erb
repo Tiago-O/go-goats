@@ -2,7 +2,7 @@
   <nav class="navbar navbar-light">
     <a class="navbar-brand" href="#">
       <%= image_tag "goaty.jpg", alt: "alttext", class: "logo" %>
-        Go Goats
+      <%= link_to "Go Goats", root_path %>
     </a>
   </nav>
 
@@ -12,9 +12,10 @@
     </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
     <% if user_signed_in? %>
-      <%= link_to 'My Profile', user_path(current_user), class:"dropdown-item"%>
+      <%= link_to 'My Profile', user_path(current_user), class: "dropdown-item"%>
+      <%= link_to 'Create a new herd', new_goat_path, class: "dropdown-item" %>
     <% else %>
-      <%= link_to 'Sign In', new_user_session_path, class:"dropdown-item"%>
+      <%= link_to 'Sign In', new_user_session_path, class: "dropdown-item"%>
     <% end %>
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item" type="button">Something else here</button>
