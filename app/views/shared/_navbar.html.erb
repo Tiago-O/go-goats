@@ -7,15 +7,17 @@
   </nav>
 
   <div class="dropdown menu-button">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Profile
+    <button class="btn btn-secondary dropdown-toggle mx-5" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Options
     </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
     <% if user_signed_in? %>
       <%= link_to 'My Profile', user_path(current_user), class: "dropdown-item"%>
       <%= link_to 'Create a new herd', new_goat_path, class: "dropdown-item" %>
+      <%= link_to 'Herds', goats_path, class: "dropdown-item" %>
     <% else %>
       <%= link_to 'Sign In', new_user_session_path, class: "dropdown-item"%>
+      <%= link_to 'Herds', goats_path, class: "dropdown-item" %>
     <% end %>
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item" type="button">Something else here</button>
