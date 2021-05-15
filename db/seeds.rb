@@ -69,9 +69,13 @@ Reservation.create(location: 'Melgaço', date: Date.today + 5.day, user: elsa, g
 puts "Created #{Reservation.count} reservations"
 
 puts 'Creating reviews'
-Review.create(rating: 3, comment: 'a good experience', user: maria, goat: goats_tiago)
+Review.create(rating: 3, comment: 'a good experience', user: elsa, goat: goats_tiago)
+Review.create(rating: 5, comment: 'loved it', user: maria, goat: goats_tiago)
+Review.create(rating: 5, comment: 'fantastic', user: elsa, goat: goats_felipe)
 Review.create(rating: 4, comment: 'a very good experience', user: joachim, goat: goats_felipe)
 Review.create(rating: 5, comment: 'an excellent experience', user: elsa, goat: goats_diogo)
+Review.create(rating: 3, comment: 'they are a bit crazy', user: maria, goat: goats_diogo)
+
 puts "Created #{Review.count} reviews"
 
 puts 'seeds created'
