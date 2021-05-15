@@ -1,7 +1,43 @@
+<%= render 'pages/components/banner' %>
 
+<div class="container page-intro mt-5">
+  <div class="row">
+    <div class="col-sm">
+      <h2> About Us</h2>
+      <p>We are a Portuguese company providing a service to help you prevent florest fires with goats.
+         Every year landlords have to clean the vegetation around their houses in order to comply with the law.
+         We make the connection between you and shepards so they can take their goats to your place to eat all the vegetation.
+      </p>
+    </div>
+    <div class="col-sm">
+      <img src="https://images.unsplash.com/photo-1560819400-434c188f63ef?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="...">
+    </div>
+  </div>
+</div>
 
-<div id="map"
+<div class="container page-intro mt-5">
+  <div class="row">
+    <div class="col-sm">
+      <img src="https://images.unsplash.com/photo-1587829450712-2d3fb7673eb0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" alt="...">
+    </div>
+    <div class="col-sm">
+      <h2>Why Goats?</h2>
+      <p>Goats are an excellent way to clean all the vegetation around your property, since they eat everything everywhere.
+       This goat system is not so agressive to the soil, in contrast to heavy machinary.
+       Let's not forget, this an environmentally sustainable  way to protect ou florests</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="container mt-5">
+  <h2>Where you can find our goats</h2>
+  <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+</div>
+
+
