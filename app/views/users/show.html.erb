@@ -1,1 +1,5 @@
 <h3>Hello <%= @user.name %></h3>
+
+<% @user.photos.each do |photo| %>
+  <%= cl_image_tag(photo.key, height: 100, width: 100, crop: :fill)%>
+<% end %>

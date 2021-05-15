@@ -1,0 +1,12 @@
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="5000">
+  <div class="carousel-inner">
+    <% @goat.photos.each_with_index do |photo, index| %>
+    <div class="carousel-item <%= index.zero? ? "active" : ""  %>">
+        <!-- <img src="..." class="d-block w-100" alt="..."> -->
+        <%= cl_image_tag(photo.key, crop: :fill, class: "d-block w-100")%>
+    </div>
+    <% end %>
+  </div>
+</div>
+
