@@ -11,7 +11,7 @@
       Profile
     </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button">Option1</button>
+    <%= link_to 'My Profile', user_path(current_user), class:"dropdown-item"%> 
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item" type="button">Something else here</button>
   </div>
