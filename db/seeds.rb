@@ -46,7 +46,7 @@ goats_tiago.photos.attach(io: file, filename: 'nes.png', content_type: 'image/pn
 goats_tiago.photos.attach(io: file_2, filename: 'nes.png', content_type: 'image/png')
 goats_tiago.save
 
-goats_felipe = Goat.create(name: 'Rebanho do Felipe', user: owner_felipe, location: 'Lagos', number: 50, description: 'Cabras calmas')
+goats_felipe = Goat.create(name: 'Rebanho do Felipe', user: owner_felipe, location: 'Lagos, Portugal', number: 50, description: 'Cabras calmas')
 file = URI.open('https://images.unsplash.com/photo-1593750439808-958d28558592?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2104&q=80')
 file_2 = URI.open('https://images.unsplash.com/photo-1610660337872-35efd9bde8c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2135&q=80')
 goats_felipe.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
