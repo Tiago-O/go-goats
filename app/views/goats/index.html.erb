@@ -1,12 +1,7 @@
 <div class="container">
   <h1>Herds</h1>
 
-  <% @goats.each do |goat| %>
-    <p><%= link_to goat.user.name.capitalize, goat_path(goat) %>'s herd</p>
-    <p><%= goat.location %></p>
-    <p><%= goat.number %></p>
-    <p><%= goat.price %></p>
-  <% end %>
+  <%= render 'goats/components/card' %>
+
   <p><%= link_to "New", new_goat_path, class: "btn btn-secondary" %></p>
 </div>
-
