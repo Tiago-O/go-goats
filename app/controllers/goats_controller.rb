@@ -7,6 +7,7 @@ class GoatsController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.new
     @review = Review.new
   end
 
