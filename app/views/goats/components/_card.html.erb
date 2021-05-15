@@ -6,12 +6,12 @@
         <%= cl_image_tag goat.photos.first.key, crop: :fill, alt: "goat picture", class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= goat.user.name %>'s herd</h5>
-          <p class="card-text">Description: <% goat.description %></p>
-          <p class="card-text">Number of goats: <% goat.number %></p>
-          <p class="card-text">Location: <% goat.location %></p>
-          <p class="card-text">Daily price: <% goat.price %> €</p>
+          <p class="card-text">Description: <%= goat.description %></p>
+          <p class="card-text">Number of goats: <%= goat.number %></p>
+          <p class="card-text">Location: <%= goat.location %></p>
+          <p class="card-text">Daily price: <%= goat.price %> €</p>
 
-          <%= link_to 'Book this herd', goat_path(goat), class: "btn btn-primary" %>
+          <%= link_to 'Check this herd', goat_path(goat), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
