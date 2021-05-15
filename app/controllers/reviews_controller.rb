@@ -2,12 +2,15 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @goat = Goat.find(params[:goat_id])
-    @user = User.find(params[:user_id])
+    @user = current_user
     @review.goat = @goat
     @review.user = @user
 
-    @review.save
-    redirect_to goat_path
+    if @review.save
+      redirect_to @goat
+    else
+      render 'goats/show'
+    end
   end
 
   private

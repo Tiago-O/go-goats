@@ -41,4 +41,15 @@
       </div>
     </div>
   </div>
+
+   <%= simple_form_for [@goat, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating %>
+    <%= f.submit "Review", class: "btn btn-secondary" %>
+  <% end %>
+
+  <% @goat.reviews.each do |review| %>
+    <%= review.comment %> <%=  '🐐' * review.rating%>
+  <% end %>
+
 </div>
