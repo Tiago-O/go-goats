@@ -1,9 +1,10 @@
 <%= render 'goats/components/carousel' %>
 
 <div class="container">
-  <h2>Herd <strong><%= @goat.name.capitalize %></strong></h2>
+  <h2><strong><%= @goat.user.name.capitalize %>'s Herd</strong></h2>
 
   <%= @goat.description %>
+  <%= @goat.price %>
   <%= @goat.location %>
   <%= @goat.number %>
 
@@ -20,7 +21,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Book herd <strong><%= @goat.name.capitalize%></strong></h5>
+          <h5 class="modal-title" id="exampleModalLabel">Book <strong><%= @goat.user.name.capitalize%></strong>'s herd</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -30,7 +31,8 @@
         <div class="modal-body">
           <%= simple_form_for [@goat, @reservation] do |f| %>
             <%= f.input :location %>
-            <%= f.input :date %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
         </div>
           <div class="modal-footer">
             <!-- close -->
