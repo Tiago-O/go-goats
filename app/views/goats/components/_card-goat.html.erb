@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <% @goats.each do |goat| %>
-    <div class="col mb-3">
-      <div class="card" style="width: 21rem;">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mb-3 d-flex justify-content-center align-items-stretch">
+      <div class="card card-goat" style="width: 21rem;">
         <%= cl_image_tag goat.photos.first.key, crop: :fill, alt: "goat picture", class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= goat.user.name.capitalize %>'s herd</h5>
@@ -11,7 +11,7 @@
           <p class="card-text">Location: <%= goat.location %></p>
           <p class="card-text">Daily price: <%= goat.price %> €</p>
 
-          <%= link_to 'Check this herd', goat_path(goat), class: "btn btn-primary" %>
+          <%= link_to 'Check this herd', goat_path(goat), class: "btn btn-primary w-100" %>
         </div>
       </div>
     </div>
