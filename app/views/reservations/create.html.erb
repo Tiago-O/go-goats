@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>🎉 You have booked <strong><%= @goat.user.name %>'s herd</strong> 🎉</h1>
+  <!-- Isto e so para desenrascar, o codigo deveria ser um elemento das reservations -->
+  <h2>This is your reservation code: <%= (123 * 34) + @reservation.id %></h2>
+  <h2>Please confirm your dates: </h2>
+  <p><strong>FROM:</strong> <%= @reservation.start_date %></p>
+  <p><strong>TO:</strong> <%= @reservation.end_date %></p>
+  <p>If you want you can edit or cancel your reservation</p>
+  <%= link_to 'Edit', edit_reservation_path(@reservation) %> | <%= link_to 'Cancel', reservation_path(@reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+

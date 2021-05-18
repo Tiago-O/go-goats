@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for [@reservation] do |f| %>
+    <p><%= @reservation.errors.full_messages %></p>
+    <%= f.input :location %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Edit", class: "btn btn-primary" %>
+  <% end %>
+</div>
