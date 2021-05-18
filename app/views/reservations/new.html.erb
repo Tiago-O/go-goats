@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for [@goat, @reservation] do |f| %>
+    <%= f.input :location %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Book now", class: "btn btn-primary" %>
+  <% end %>
+
+</div>

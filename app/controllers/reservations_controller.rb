@@ -8,31 +8,25 @@ class ReservationsController < ApplicationController
   def show; end
 
   def create
+    @goat = Goat.find(params[:goat_id])
+    @review = Review.new
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
-    @reservation.goat = Goat.find(params[:goat_id])
-
-    if @reservation.save
-      # change this to confirmation page
-      redirect_to @reservation.goat
-    else
-      render 'goats/show'
-    end
+    @reservation.goat = @goat
+    # render 'goats/show' unless @reservation.save
+    render :new unless @reservation.save
   end
 
-  # is this method necessary ?
-  # def edit; end
+  def edit; end
 
   def update
     @reservation.update(reservation_params)
-    @reservation.user = @user
-    redirect_to @user
+    redirect_to user_path(current_user)
   end
 
   def destroy
     @reservation.destroy
-    @reservation.user = @user
-    redirect_to @user
+    redirect_to user_path(current_user)
   end
 
   private
