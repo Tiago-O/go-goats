@@ -5,6 +5,7 @@ class Goat < ApplicationRecord
   has_many_attached :photos
 
   validates :price, presence: true
+  validates :photos, presence: true
   validates :price, numericality: { only_integer: true }
 
 
