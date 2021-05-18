@@ -1,5 +1,39 @@
-<h3>Hello <%= @user.name %></h3>
+<div class="container">
+  <h2>Hello <%= @user.name %></h2>
+  <div class="box bold"><marquee direction="right" data-speed="7">Click to view your data</marquee></div>
+</div>
 
-<% @user.photos.each do |photo| %>
-  <%= cl_image_tag(photo.key, height: 100, width: 100, crop: :fill)%>
-<% end %>
+<div class="container">
+  <p>
+    <i class="fas fa-arrow-alt-circle-right"></i>
+      <button class="btn btn-secondary my-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <h3>Herds</h3>
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <p><h4>You have:</h4> <h3><%= @user.goats.count %></h3> <h4>Herds</h4></p>
+        <% n = 1 %>
+          <% @user.goats.each do |goat| %>
+            <%= link_to "Go to your Herd number #{n}", goat_path(goat), class: 'btn btn-secondary' %>
+            <% n += 1 %>
+        <% end %> 
+    </div>
+  </div>
+
+<p>
+  <i class="fas fa-arrow-alt-circle-right"></i>
+  <button class="btn btn-secondary mb-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <h3>Reservations</h3>
+    </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <p><h4>You have:</h4> <h3><%= @user.reservations.count %></h3> <h4>Reservations</h4></p><i class="fas fa-address-book"></i>
+      <%= link_to 'Edit Reservations', class: 'btn btn-secondary my-3 mr-3'%>
+  </div>
+</div>
+
+<%= link_to 'Homepage', root_path, class: 'btn btn-secondary' %><i class="fas fa-home"></i>
+
+</div>
