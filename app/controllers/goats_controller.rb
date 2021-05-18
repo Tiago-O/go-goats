@@ -4,6 +4,13 @@ class GoatsController < ApplicationController
 
   def index
     @goats = Goat.all
+
+    @markers = @goats.geocoded.map do |goat|
+      {
+        lat: goat.latitude,
+        lng: goat.longitude
+      }
+    end
   end
 
   def show
