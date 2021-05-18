@@ -1,26 +1,39 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-goats px-3">
-  <nav class="navbar navbar-light">
-    <a class="navbar-brand" href="#">
-      <%= image_tag "goaty.jpg", alt: "alttext", class: "logo" %>
-      <%= link_to "Go Goats", root_path %>
-    </a>
-  </nav>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "goaty.jpg", alt: "alttext", class: "logo" %>
+    Go Goats
+  <% end %>
 
-  <div class="dropdown menu-button">
-    <button class="btn btn-secondary dropdown-toggle mx-5" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Options
-    </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <% if user_signed_in? %>
-      <%= link_to 'My Profile', user_path(current_user), class: "dropdown-item"%>
-      <%= link_to 'Create a new herd', new_goat_path, class: "dropdown-item" %>
-      <%= link_to 'Herds', goats_path, class: "dropdown-item" %>
-    <% else %>
-      <%= link_to 'Sign In', new_user_session_path, class: "dropdown-item"%>
-      <%= link_to 'Herds', goats_path, class: "dropdown-item" %>
-    <% end %>
-    <button class="dropdown-item" type="button">Another action</button>
-    <button class="dropdown-item" type="button">Something else here</button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "Herds", goats_path , class: "nav-link" %>
+      </li>
+
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <%= image_tag current_user.photos.first, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to 'My Profile', user_path(current_user), class: "dropdown-item"%>
+            <%= link_to 'Create a new herd', new_goat_path, class: "dropdown-item" %>
+            <%= link_to 'Herds', goats_path, class: "dropdown-item" %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+          </div>
+        </li>
+
+      <% else %>
+        <li class="nav-item active font-weight-bold">
+          <%= link_to 'Sign In', new_user_session_path, class: "nav-link"%>
+        </li>
+      <% end %>
+
+    </ul>
   </div>
-</div>
 </div>
