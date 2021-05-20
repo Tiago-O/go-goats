@@ -3,9 +3,16 @@
   <div class="container">
     <h1><strong>Welcome to Go Goats</strong></h1>
     <p>An innovative and sustainable way to prevent forest fires.</p>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Address" aria-label="Search">
-      <button class="btn btn-primary btn-decoration my-2 my-sm-0" type="submit" >Search</button>
-    </form>
+
+    <%= form_tag goats_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+      <%= search_field_tag :query,
+        params[:query],
+        autocomplete: "off",
+        class: "form-control mr-sm-2",
+        placeholder: "Look for an address"
+      %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary my-2 my-sm-0" %>
+    <% end %>
+
   </div>
 </div>

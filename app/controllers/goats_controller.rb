@@ -3,7 +3,11 @@ class GoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @goats = Goat.all
+    if params[:query].present?
+      @goats = Goat.search_by_location(params[:query])
+    else
+      @goats = Goat.all
+    end
 
     @markers = @goats.geocoded.map do |goat|
       {
