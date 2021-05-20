@@ -1,3 +1,13 @@
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 85px;    /* Footer height */
+}
+
+
 .footer {
   background: white;
   display: flex;
@@ -6,6 +16,10 @@
   height: 90px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 85px;
 }
 
 .footer-links {
