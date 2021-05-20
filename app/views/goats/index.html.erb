@@ -5,7 +5,7 @@
 
   <div class="row flex-column flex-sm-row flex-md-row flex-lg-row">
 
-    <div class="col-12 col-sm-6 col-md-6 col-lg-8">
+    <div class="col-12 col-sm-6 col-lg-8">
       <div class="row justify-content-begin">
         <% @goats.each do |g| %>
           <%= render 'goats/components/card-goat', goat: g %>
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+    <div class="col-12 col-sm-6 col-lg-4">
       <div id="map"
         style="width: 100%; height: 100vh"
         data-markers="<%= @markers.to_json %>"
