@@ -1,37 +1,54 @@
 <%= render 'goats/components/carousel' %>
 
-<div class="container mt-3">
+<div class="container mt-5">
 
-  <h2><strong><%= @goat.user.name.capitalize %>'s Herd</strong></h2>
+  <h2 class="page-header">Welcome to <strong><%= @goat.user.name.capitalize %>'s Herd</strong></h2>
 
-  <p>Description: <%= @goat.description %></p>
-  <p>Number of goats: <%= @goat.number %></p>
-  <p>Location: <%= @goat.location %></p>
-  <p>Daily price: <%= @goat.price %> €</p>
+  <div class="page-container container mt-5">
+    <div class="row flex-sm-row flex-lg-row">
+      <div class="col-sm-8  col-lg-8 about-container">
+        <h4>About this herd:</h4>
+        <p><%= @goat.description%></p>
+      </div>
+      <div class="col-sm-4 col-lg-4 goat-details p-3">
+        <h4><strong>Details</strong></h4>
+        <p>Number of goats: <strong><%= @goat.number %></strong></p>
+        <p>Location: <strong><%= @goat.location %></strong></p>
+        <p>Daily price: <strong><%= @goat.price %> €</strong></p>
+        <% if current_user == @goat.user %>
+          <%= link_to 'edit your herd', edit_goat_path(@goat), class: 'btn btn-primary my-3 mr-3' %>
+          <%= link_to 'delete your herd', goat_path(@goat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger my-3' %>
+        <% else %>
+         <%= render 'goats/components/modal' %>
+        <% end %>
 
-  <div>
-    <% if current_user == @goat.user %>
-      <%= link_to 'edit your herd', edit_goat_path(@goat), class: 'btn btn-secondary my-3 mr-3' %>
-      <%= link_to 'delete your herd', goat_path(@goat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger my-3' %>
-    <% end %>
+      </div>
+    </div>
   </div>
 
-  <%= render 'goats/components/modal' %>
-
-  <div class="reviews my-4">
-    <h5>Reviews:</h5>
-    <% @goat.reviews.each do |review| %>
-    <p><%=  '🐐' * review.rating%> | <%= review.comment %>.</p>
-  <% end %>
-  </div>
-
-  <div class="mt-4">
-    <h5>Add your review:</h5>
-    <%= simple_form_for [@goat, @review] do |f| %>
-    <%= f.input :comment %>
-    <%= f.input :rating %>
-    <%= f.submit "Review", class: "btn btn-secondary" %>
-    <% end %>
+  <div class="reviews-container container mt-5">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-lg-6">
+        <div class="reviews my-4 p-3">
+          <h5 class="review-header">Reviews</h5>
+          <% @reviews.each do |review| %>
+          <p><strong><%= review.user.name %>'s review</strong> | <%=  '🐐' * review.rating%></p>
+          <p class="review-header"><%= review.comment %></p>
+        <% end %>
+        <%= paginate @reviews %>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-6">
+        <div class="mt-4 mb-4">
+          <h5>Add your review:</h5>
+          <%= simple_form_for [@goat, @review] do |f| %>
+          <%= f.input :comment %>
+          <%= f.input :rating %>
+          <%= f.submit "Review", class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
