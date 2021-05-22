@@ -1,18 +1,24 @@
-<div class="container">
-  <h2>Hello <%= @user.name %></h2>
-  <div class="box bold"><marquee direction="right" data-speed="7">Click to view your data</marquee></div>
+<div class="container d-flex mb-3">
+  <div class="card" style="width: 14rem;">
+    <%= image_tag current_user.photos.first, class: "avatar-profile"  %> 
+  <div class="card-body">
+    <h4>Address: <%= @user.address %></h4>
+    <h5>Email: <%= @user.email %></h5>
+  </div>
 </div>
 
 <div class="container">
+  <h2>Hello <%= @user.name %></h2>
+    <p><div class="box bold"><marquee direction="right" data-speed="7">Click to view your data</marquee></div></p>
   <p>
     <i class="fas fa-arrow-alt-circle-right"></i>
-      <button class="btn btn-secondary my-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <button class="btn btn-secondary mt-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <h3>Herds</h3>
     </button>
   </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
-      <p><h4>You have:</h4> <h3><%= @user.goats.count %></h3> <h4>Herds</h4></p>
+      <p><h4>You have:</h4> <h3><%= @user.goats.count %>Herds</h3></p>
         <% n = 1 %>
           <% @user.goats.each do |goat| %>
             <%= link_to "Go to your Herd number #{n}", goat_path(goat), class: 'btn btn-secondary' %>
@@ -23,17 +29,49 @@
 
 <p>
   <i class="fas fa-arrow-alt-circle-right"></i>
-  <button class="btn btn-secondary mb-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <button class="btn btn-secondary mt-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       <h3>Reservations</h3>
     </button>
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    <p><h4>You have:</h4> <h3><%= @user.reservations.count %></h3> <h4>Reservations</h4></p><i class="fas fa-address-book"></i>
-      <%= link_to 'Edit Reservations', class: 'btn btn-secondary my-3 mr-3'%>
+    <h4>You have:</h4>
+    <h3> <%= @user.reservations.count %> Reservations</h3> 
+      <button type="button" class="btn btn-secondary my-2" data-toggle="modal" data-target="#exampleModalCenter">
+        Show Details
+      </button>
+
   </div>
 </div>
+    <i class="fas fa-home"></i><%= link_to 'Homepage', root_path, class: 'btn btn-secondary my-3' %>
+</div>
+</div>
 
-<%= link_to 'Homepage', root_path, class: 'btn btn-secondary' %><i class="fas fa-home"></i>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Details:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mb-3">
+        <% current_user.reservations.each do |reservation| %>
+          Reservation ID: <%= reservation.id %>
+          <p>Location: <%= reservation.location %></p>
+          <p>Starting Date: <%= reservation.start_date %></p>
+          <p>Ending Date: <%= reservation.end_date %></p>
+          <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-secondary" %>
+          <%= link_to "Cancel", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
+          <p></p>
+       <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
