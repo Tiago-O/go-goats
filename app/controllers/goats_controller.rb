@@ -5,6 +5,9 @@ class GoatsController < ApplicationController
   def index
     if params[:query].present?
       @goats = Goat.search_by_location(params[:query])
+    elsif params[:coords].present?
+      coords = params[:coords].split(',')
+      @goats = Goat.near([coords[0], coords[1]], 50, units: :km)
     else
       @goats = Goat.all
     end

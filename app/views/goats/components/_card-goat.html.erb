@@ -1,5 +1,5 @@
 
-<div class="col-12 <%= @goats.count == 1 ? "col-lg-12" : "col-lg-6" %> d-flex mb-2">
+<div class="col-12 <%= @goats.size == 1 ? "col-lg-12" : "col-lg-6" %> d-flex mb-2">
   <div class="card card-goat">
     <%= cl_image_tag goat.photos.first.key, crop: :fill, alt: "goat picture", class: "card-img-top" %>
     <div class="card-body">

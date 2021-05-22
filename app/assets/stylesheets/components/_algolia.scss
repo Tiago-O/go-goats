@@ -2,6 +2,10 @@
   width: auto;
 }
 
+[data-homesearch="true"] {
+  width: 50vw !important;
+}
+
 .form-group > .algolia-places {
   width: 100%;
 }
