@@ -5,10 +5,10 @@
         <h3>Create your Herd</h3>
         <%= simple_form_for @goat do |g| %>
           <%= g.input :price, placeholder: 'Ex: The price per hour' %>
-          <%= g.input :location, placeholder: 'Ex: Your location' %>
+          <%= g.input :location, placeholder: 'Ex: Your location', input_html: { data: { js: 'search' } } %>
           <%= g.input :number, placeholder: 'Ex: The number of goats' %>
           <%= g.input :description, placeholder: 'Ex: Describe your service' %>
-           <%= g.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= g.input :photos, as: :file, input_html: { multiple: true } %>
           <%= g.submit class: 'btn btn-secondary' %>
         <% end %>
       </div>
