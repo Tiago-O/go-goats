@@ -5,11 +5,11 @@
     <p>An innovative and sustainable way to prevent forest fires.</p>
 
     <%= form_tag goats_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
-      <%= search_field_tag :query,
+      <%= text_field_tag :query,
         params[:query],
         autocomplete: "off",
         class: "form-control mr-sm-2",
-        id: 'location-search',
+        data: { js: 'search' },
         placeholder: "Look for an address"
       %>
       <%= submit_tag "Search", name: "", class: "btn btn-primary my-2 my-sm-0" %>
