@@ -18,8 +18,8 @@
         <div class="modal-body">
           <%= simple_form_for [@goat, @reservation] do |f| %>
             <%= f.input :location %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+            <%= f.input :start_date, as: :string, input_html: {type: :date} %>
+            <%= f.input :end_date, as: :string, input_html: {type: :date} %>
 
             <div class="modal-footer">
               <!-- close -->
