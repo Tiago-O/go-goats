@@ -20,6 +20,7 @@ class GoatsController < ApplicationController
   def show
     @reservation = Reservation.new
     @review = Review.new
+    @reviews = @goat.reviews.order(created_at: :desc).page(params[:page])
   end
 
   def new
