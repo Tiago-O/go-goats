@@ -3,7 +3,7 @@
 
   <%= simple_form_for @goat do |f| %>
     <%= f.input :price %>
-    <%= f.input :location %>
+    <%= f.input :location, input_html: { data: { js: 'search' } } %>
     <%= f.input :number %>
     <%= f.input :description %>
     <%= f.submit "Update", class: "btn btn-secondary" %>
